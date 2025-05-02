@@ -3,6 +3,9 @@ import { useState } from 'react';
 export default function CvMatcher() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [minScore, setMinScore] = useState(70);
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,6 +41,19 @@ export default function CvMatcher() {
               <button type="submit" >
                 {loading ? 'Chargement...' : 'Lancer la comparaison'}
               </button>
+              
+              <div className="mb-3">
+  <label className="form-label">Score minimum (%)</label>
+  <input
+    type="number"
+    className="form-control"
+    min="0"
+    max="100"
+    value={minScore}
+    onChange={(e) => setMinScore(Number(e.target.value))}
+/>
+</div>
+
             </form>
           </div>
 
@@ -56,7 +72,10 @@ export default function CvMatcher() {
       {results.length > 0 && (
         <div className="mt-4">
           <h4>Résultats :</h4>
-          {results.map((cv, idx) => (
+          {results
+  .filter((cv) => cv.score >= minScore)
+  .map((cv, idx) => (
+
             <div className="card mb-2" key={idx}>
               <div className="card-body">
                 <h5 className="card-title">{cv.filename}</h5>

@@ -15,13 +15,14 @@
   }
   
   .logo {
+    margin-top: 5px;
     position: absolute;
-    left: 1rem;
+    margin-right: 90%;
     height: 100px;
   }
   
   .title {
-    font-size: 1.8rem;
-    font-weight:lighter;
+    font-size:2rem;
+    font-weight:400;
   }
   

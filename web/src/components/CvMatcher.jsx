@@ -22,24 +22,37 @@ export default function CvMatcher() {
   return (
     <div className="container mt-5">
       <div className="card shadow">
-        <div className="card-body">
-          <h2 className="card-title mb-4">Comparer les CVs avec une fiche de poste</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label className="form-label">Fiche de poste</label>
-              <input type="file" name="job" className="form-control" required />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">CVs</label>
-              <input type="file" name="cvs" className="form-control" multiple required />
-            </div>
-            <button type="submit" >
-              {loading ? 'Chargement...' : 'Lancer la comparaison'}
-            </button>
-          </form>
+        <div className="card-body d-flex flex-wrap justify-content-between">
+          {/* Form Section */}
+          <div style={{ flex: 1, minWidth: '300px' }}>
+            <h2 className="card-title mb-4">Comparer les CVs avec une fiche de poste</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label className="form-label">Fiche de poste</label>
+                <input type="file" name="job" className="form-control" required />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">CVs</label>
+                <input type="file" name="cvs" className="form-control" multiple required />
+              </div>
+              <button type="submit" >
+                {loading ? 'Chargement...' : 'Lancer la comparaison'}
+              </button>
+            </form>
+          </div>
+
+          {/* Image Section */}
+          <div style={{ marginLeft: '2rem', marginTop: '1rem' }}>
+            <img
+              src="/afriqua.png"
+              alt="CV Matcher"
+              style={{ maxWidth: '250px', height: 'auto' }}
+            />
+          </div>
         </div>
       </div>
 
+      {/* Result Section */}
       {results.length > 0 && (
         <div className="mt-4">
           <h4>Résultats :</h4>

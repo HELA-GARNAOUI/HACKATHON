@@ -2,7 +2,7 @@
     background-color: #6f1425;
     border: 3px solid #6E0C1C;
     padding: 1rem 0;
-    height: 100px;
+    height: 80px;
     color: white;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
@@ -18,11 +18,11 @@
     margin-top: 5px;
     position: absolute;
     margin-right: 90%;
-    height: 100px;
+    height: 70px;
   }
   
   .title {
     font-size:2rem;
-    font-weight:400;
+    font-weight:300;
   }
   
